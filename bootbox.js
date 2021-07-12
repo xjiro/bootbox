@@ -92,7 +92,7 @@
     footer:
     '<div class="modal-footer"></div>',
     closeButton:
-    '<button type="button" class="bootbox-close-button close" aria-hidden="true">&times;</button>',
+    '<button type="button" class="btn btn-lg bootbox-close-button close" aria-hidden="true">&times;</button>',
     form:
     '<form class="bootbox-form"></form>',
     button:
@@ -150,7 +150,7 @@
     // switch button order from cancel/confirm (default) to confirm/cancel
     swapButtonOrder: false,
     // center modal vertically in page
-    centerVertical: false,
+    centerVertical: true,
     // Append "multiple" property to the select when using the "prompt" helper
     multiple: false,
     // Automatically scroll modal content when height exceeds viewport height
