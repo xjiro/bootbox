@@ -76,10 +76,11 @@
     }
   };
 
+
   var templates = {
     dialog:
-    '<div class="bootbox modal" tabindex="-1" role="dialog" aria-hidden="true">' +
-    '<div class="modal-dialog">' +
+    '<div class="modal fade dialogbox" id="DialogBasic" data-bs-backdrop="static" tabindex="-1" role="dialog">' +
+    '<div class="modal-dialog" role="document">' +
     '<div class="modal-content">' +
     '<div class="modal-body"><div class="bootbox-body"></div></div>' +
     '</div>' +
@@ -90,7 +91,7 @@
     '<h5 class="modal-title"></h5>' +
     '</div>',
     footer:
-    '<div class="modal-footer"></div>',
+    '<div class="modal-footer"><div class="btn-inline"></div></div>',
     closeButton:
     '<button type="button" class="bootbox-close-button close" aria-hidden="true">&times;</button>',
     form:
@@ -138,7 +139,7 @@
     // additional class string applied to the top level dialog
     className: null,
     // whether or not to include a close button
-    closeButton: true,
+    closeButton: false,
     // show the dialog immediately by default
     show: true,
     // dialog container
@@ -150,13 +151,14 @@
     // switch button order from cancel/confirm (default) to confirm/cancel
     swapButtonOrder: false,
     // center modal vertically in page
-    centerVertical: false,
+    centerVertical: true,
     // Append "multiple" property to the select when using the "prompt" helper
     multiple: false,
     // Automatically scroll modal content when height exceeds viewport height
     scrollable: false,
     // whether or not to destroy the modal on hide
-    reusable: false
+    reusable: false,
+    onEscape: true
   };
 
 
@@ -298,7 +300,7 @@
         }
 
         button.html(b.label);
-        footer.append(button);
+        $(footer.children()[0]).append(button);
 
         callbacks[key] = b.callback;
       });
@@ -1117,10 +1119,10 @@
 
         if (total <= 2 && isPrimary) {
           // always add a primary to the main option in a one or two-button dialog
-          button.className = 'btn-primary';
+          button.className = 'btn-text-primary';
         } else {
           // adding both classes allows us to target both BS3 and BS4 without needing to check the version
-          button.className = 'btn-secondary btn-default';
+          button.className = 'btn-text-secondary btn-default';
         }
       }
     });
